@@ -1,0 +1,29 @@
+{
+  "name": "yii2-qiniu-fileinput",
+  "description": "",
+  "main": "gulpfile.babel.js",
+  "authors": [
+    "pcyanglei <127802495@qq.com>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "vue": "^2.4.2",
+    "bootstrap": "^3.3.7"
+  },
+  "overrides": {
+    "vue": {
+      "main": "dist/vue.js"
+    },
+    "bootstrap":{
+      "main" : "dist/css/bootstrap.css"
+    }
+  }
+}

@@ -1,0 +1,98 @@
+<html>
+<head>
+    <!-- bower:css -->
+    <!-- endbower -->
+    <link rel="stylesheet" href="./styles/qiniu-input.css">
+</head>
+<script>
+    var ql_8d2fba74 = {
+        'el' : '#goods-image',
+//        'a' : 'first'
+    };
+</script>
+<body>
+<div class="goods-create">
+
+    <h1>Create Goods1</h1>
+
+
+    <div class="goods-form">
+
+        <form id="w0" class="form-horizontal" action="http://back.ec51.com/site/test" method="post">
+            <input type="hidden" name="_csrf-backend" value="9vuok-InM6F8ZhN1XrZcBM25PxcrlMZqzDGnOgm9Qbmz9uBByc1ry-mc-P6NBVgWjNxYEdfxTFEu_6VoetIWBw==">
+            <div class="form-group field-goods-name required">
+                <label class="col-sm-2 control-label" for="goods-name">商品名称</label>
+                <div class="col-sm-8"><input type="text" id="goods-name" class="form-control" name="Goods[name]" maxlength="20" aria-required="true">
+                    <span class="help-block m-b-none"><div class="help-block"></div></span></div>
+            </div>
+            <div class="form-group field-goods-sort">
+                <label class="col-sm-2 control-label" for="goods-sort">商品排序;sort</label>
+                <div class="col-sm-8"><input type="text" id="goods-sort" class="form-control" name="Goods[sort]">
+                    <span class="help-block m-b-none"><div class="help-block"></div></span></div>
+            </div>
+
+            <div class="form-group field-goods-image required">
+                <label class="col-sm-2 control-label" for="goods-image">商品图片;image</label>
+                <div class="col-sm-8">
+
+
+
+
+
+                    <div id="goods-image">
+                        <div class="zh-images" v-if="imageList.length > 0 || errMessage != ''">
+                            <div class="err-box" v-show="errMessage != ''">
+                                <span v-text="errMessage"></span><span class="close" @click="errMessage = ''">×</span>
+                            </div>
+                            <div v-for="(item,key) in imageList" class="zh-images-items">
+                                <img :src="item.name"><div class="zh-cover" @click="deleteImg(key)">删除</div>
+                            </div>
+                        </div>
+                        <div class="progress" v-if="progress > 0">
+                            <div class="progress-bar" :style="{ width: progress+'%'}">{{progress}}%</div>
+                        </div>
+                        <div class="file-btn">
+                            <span>请选择</span>
+                            <input type="hidden" name="Goods[image][]" v-model="img.name" v-for="img in imageList" v-if="imageList.length > 0">
+                            <input type="file"  name="zh" multiple="multiple" :accept="config.accept" @change="upload">
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+
+                    <span class="help-block m-b-none"><div class="help-block"></div></span>
+                </div>
+            </div>
+
+            <div class="form-group field-goods-status">
+                <label class="col-sm-2 control-label" for="goods-status">状态;status;[0=&gt;'下架',10=&gt;'上架']</label>
+                <div class="col-sm-8"><input type="text" id="goods-status" class="form-control" name="Goods[status]">
+                    <span class="help-block m-b-none"><div class="help-block"></div></span></div>
+            </div>
+            <div class="form-group field-goods-detail required">
+                <label class="col-sm-2 control-label" for="goods-detail">商品详情;text</label>
+                <div class="col-sm-8"><textarea id="goods-detail" class="form-control" name="Goods[detail]" rows="6" aria-required="true"></textarea>
+                    <span class="help-block m-b-none"><div class="help-block"></div></span></div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-4 col-sm-offset-2">
+                    <button type="submit" class="btn btn-success">Create</button>		</div>
+            </div>
+
+        </form>
+    </div>
+
+</div>
+<!-- bower:js -->
+<!-- endbower -->
+<script src="./scripts/qiniu-input.js"></script>
+<script>
+    new QiniuFileInput(ql_8d2fba74);
+</script>
+</body>
+</html>
